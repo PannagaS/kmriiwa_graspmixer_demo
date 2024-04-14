@@ -18,7 +18,8 @@ The pose estimation pipeline is as shown in the following figure.
                                 ![flow_chart (1)](https://github.com/PannagaS/ROB-590/assets/40464435/997cb707-6573-4d64-9270-8ab4098cbd96)
 
 ## Visuals
-put gifs/ss of your work here
+
+![grasping-ezgif com-video-to-gif-converter](https://github.com/PannagaS/ROB-590/assets/40464435/3d77487f-3fee-404a-9694-1bfaaaa83f0b)
 
 
 ## Code setup
