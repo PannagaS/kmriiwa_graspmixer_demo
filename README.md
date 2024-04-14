@@ -22,18 +22,21 @@ put gifs/ss of your work here
 
 ## Code setup
 ```
-graspmixer_demo/
+📁 /graspmixer
 ├── 📄 CMakeLists.txt
+├── 📄 LICENSE
+├── 📄 README.md
 ├── 📄 large_obj_06.stl
-├── 📁 launch/
-│   ├── 📄 kmriiwa_bringup_graspmixer_cal.launch
+├── 📁 launch
 │   ├── 📄 kmriiwa_bringup_graspmixer.launch
+│   ├── 📄 kmriiwa_bringup_graspmixer_cal.launch
 │   ├── 📄 move_above_part.launch
 │   ├── 📄 segmentation_testing.launch
-│   ├── 📄 wristcam_demo.launch
+│   ├── 📄 segmentation_testing_2.launch
+│   ├── 📄 wrist_camera_graspmixer.launch
 │   ├── 📄 wrist_camera_graspmixer_cal.launch
-│   └── 📄 wrist_camera_graspmixer.launch
-├── 📁 output_models/
+│   └── 📄 wristcam_demo.launch
+├── 📁 output_models
 │   ├── 📄 large_obj_01.stl
 │   ├── 📄 large_obj_04.stl
 │   ├── 📄 large_obj_06.stl
@@ -49,35 +52,37 @@ graspmixer_demo/
 │   ├── 📄 small_obj_19.stl
 │   └── 📄 small_obj_25.stl
 ├── 📄 package.xml
-├── 📄 README.md
-├── 📁 scripts/
-│   ├── 📄 camera_info_modifier.py
-│   ├── 📄 capture_img.py
-│   ├── 📄 cv2_test.py
-│   ├── 📄 dummy.txt
-│   ├── 📄 extractHSVrange.py
-│   ├── 📄 grey_box.png
-│   ├── 📄 load_bag.py
+├── 📄 pose_estimation_ros.py
+├── 📁 scripts
+│   ├── 📁 __pycache__
+│   │   └── 📄 pose_estimation_globalRegistration_basic_class.cpython-38.pyc
 │   ├── 📄 move_above_part.py
 │   ├── 📄 point_cloud_ex.py
-│   ├── 📄 pose_estimation_globalRegistration_basic_class.py
-│   ├── 📄 pose_estimation_globalRegistration_basic.py
-│   ├── 📄 pose_estimation_globalRegistration_basic_SDF.py
-│   ├── 📄 pose_estimation_globalRegistration.py
-│   ├── 📄 pose_estimation_ros.py
-│   ├── 📄 pose_estimation_server.py
-│   ├── 📄 pose_est_pc_topic.py
-│   ├── 📁 __pycache__/
-│   │   └── 📄 pose_estimation_globalRegistration_basic_class.cpython-38.pyc
-│   ├── 📄 topic_2_image.py
-│   ├── 📄 usbcam_2_kinect_cal_math.py
-│   ├── 📄 view_images.py
-│   ├── 📄 view_pc_class.py
-│   └── 📄 view_pc.py
-├── 📁 src/
+│   ├── 📄 pose_estimation.py
+│   ├── 📁 remove these
+│   │   ├── 📄 camera_info_modifier.py
+│   │   ├── 📄 capture_img.py
+│   │   ├── 📄 cv2_test.py
+│   │   ├── 📄 dummy.txt
+│   │   ├── 📄 extractHSVrange.py
+│   │   ├── 📄 grey_box.png
+│   │   ├── 📄 load_bag.py
+│   │   ├── 📄 pose_est_pc_topic.py
+│   │   ├── 📄 pose_estimation_globalRegistration.py
+│   │   ├── 📄 pose_estimation_globalRegistration_basic.py
+│   │   ├── 📄 pose_estimation_globalRegistration_basic_SDF.py
+│   │   ├── 📄 pose_estimation_ros.py
+│   │   ├── 📄 pose_estimation_server.py
+│   │   ├── 📄 topic_2_image.py
+│   │   ├── 📄 view_images.py
+│   │   ├── 📄 view_pc.py
+│   │   └── 📄 view_pc_class.py
+│   └── 📄 usbcam_2_kinect_cal_math.py
+├── 📁 src
 │   └── 📄 manual_calibration_pub.py
-└── 📁 temp/
+└── 📁 temp
     └── 📄 mesh.stl
+
  ```
 
 `launch/` contains all the necessary launch files to spin relevant nodes and topics.
@@ -179,7 +184,7 @@ When you launch any launch file (except for move_above_part.launch), you are req
 When launching **move_above_part.launch**, you need to press and hold play on the pendant before launching the script (hold till the end of execution) or till the control reaches embed(). You can let go when you work with embed, but if are doing any robot manipulation from a piece of code, you need to press and hold play on the pendant till the end of execution. 
 
 ## Authors and acknowledgment
-BRG
+Pannaga Sudarshan, Tyler Toner
 
 ## License
 For open source projects, say how it is licensed.

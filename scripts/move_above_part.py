@@ -6,7 +6,7 @@ from IPython import embed
 from geometry_msgs.msg import Pose, Twist, PoseStamped
 import tf_conversions as tfc
 import numpy as np
-from pose_estimation_globalRegistration_basic_class import PoseEstimation
+from pose_estimation import PoseEstimation
 import tf.transformations as tf_trans  
 from tf import TransformListener
 
