@@ -1,0 +1,39 @@
+result = o3d.pipelines.registration.registration_fgr_based_on_feature_matching(
+source_down, target_down, source_fpfh, target_fpfh,
+o3d.pipelines.registration.FastGlobalRegistrationOption(maximum_correspondence_distance=icp_dist_threshold))
+
+
+
+
+radius = 0.015
+x,y,z  = np.linalg.inv(icp_result.transformation)[:3, 3]
+highlight_sphere = o3d.geometry.TriangleMesh.create_sphere(radius = radius) 
+highlight_sphere.translate([x,y,z])  
+highlight_sphere.paint_uniform_color([0,1,0]) 
+source_temp = deepcopy(source).transform(icp_result.transformation) 
+target_temp = deepcopy(target) 
+o3d.visualization.draw_geometries([source_temp, target_temp, highlight_sphere, self.coordinate_frame])   
+
+tf_source = ransac_result.transformation
+
+icp_dist_threshold = voxel_size * 1000
+icp_result = o3d.pipelines.registration.registration_icp(
+source, target, icp_dist_threshold, ransac_result.transformation,   
+o3d.pipelines.registration.TransformationEstimationPointToPlane(),
+o3d.pipelines.registration.ICPConvergenceCriteria(max_iteration = 10000))
+
+-------------
+z_offset = 0.055
+pose_obj_wrt_cam = tfc.toMsg(tfc.fromMatrix(tf_obj_wrt_cam))
+object_in_base_f = convert_pose_to_base_frame(pose_obj_wrt_cam, "rgb_camera_link", "kmriiwa_base_link") 
+object_in_base_f.position.z += z_offset
+timer = rospy.Timer(rospy.Duration(0.001), timer_callback)
+
+robot.move(object_in_base_f)
+
+object_in_base_f.position.z += 0.005
+robot.move
+
+
+robot.close_gripper()
+robot.move_cfg(CAPTURE_CFG)     # move to object pose estimation config

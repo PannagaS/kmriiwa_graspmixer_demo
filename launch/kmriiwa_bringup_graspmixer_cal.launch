@@ -1,0 +1,30 @@
+<launch>
+<!-- This is the same as kmriiwa_bringup, but tweaked for graspmixer experiments (3/20/2024) -->
+  <arg name="use_namespace" default="false"/>
+  <arg name="robot_name" default="kmriiwa"/>
+  <!-- <arg name="robot_name" default=""/> -->
+
+  <!-- pannaga changed the below line-->
+  <arg name="robot_extras" default="$(find kmriiwa_description)/urdf/robot/empty.xacro"/>
+
+  <arg name="publish_frequency" default="10"/>
+  <arg name="no_static_map" default="true"/>
+  <arg name="map_file" default="/home/bartonlab-user/workspace/lab_map.yaml" />
+
+  <include file="$(find kmriiwa_bringup)/launch/kmriiwa_bringup.launch" >
+    <arg name="use_namespace" value="$(arg use_namespace)" /> <!-- added this to make it more generic-->
+  </include>
+
+  
+  <include file="$(find kmriiwa_bringup)/launch/planning_stack_bringup.launch">
+    <arg name="use_namespace" value="$(arg use_namespace)" /> <!-- added this to make it more generic-->
+    <arg name="no_static_map" value="$(arg no_static_map)" />
+    <arg name="map_file" value="$(arg map_file)" />
+  </include>
+
+  <!-- Might need to be altered to work with other cameras -->
+  <!-- <include file="$(find kmriiwa_commander)/launch/wrist_camera_graspmixer_cal.launch" ns="$(arg robot_name)"/>  -->
+  <include file="$(find graspmixer_demo)/launch/wrist_camera_graspmixer_cal.launch"/> 
+
+</launch>
+

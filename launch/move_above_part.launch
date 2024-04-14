@@ -1,0 +1,3 @@
+<launch>
+    <node name="test" pkg="graspmixer_demo" type="move_above_part.py" output="screen" ns="kmriiwa"/>
+</launch>
