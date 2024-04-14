@@ -151,6 +151,7 @@ Make sure to select the following in hand-eye calibration gui:
 
 
 <ins>In calibrate tab</ins>
+
 Choose `kmriiwa_manipulator` as Planning Group.
 
 Take around 12-15 samples and save the pose file in a local directory. Copy the `static_transform_publisher` information (quaternion) and paste it in **wrist_camera_graspmixer.py**. 
